@@ -182,6 +182,7 @@ Sometimes you'll want to catch the same event that's being used by this library 
 Note that if you set this to true, and don't catch it with something else the browser's context menu will be shown on top of this library's context menu.
 
 ## Dynamically enable/disable context menu
+Sometimes you may wish to dynamically enable or disable the context menu. TO do this simple use the `context-menu-enabled` property and pass in a boolean value. Default: `true`
 ```
 <button class="btn btn-default"
             context-menu="otherMenuOptions"
