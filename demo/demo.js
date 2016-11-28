@@ -9,24 +9,29 @@ angular.module('app', ['ui.bootstrap.contextMenu'])
             gold: 100
         };
 
-        $scope.items = [
-            { name: 'Small Health Potion', cost: 4 },
-            { name: 'Small Mana Potion', cost: 5 },
-            { name: 'Iron Short Sword', cost: 12 }
-        ];
+        $scope.items = [{
+            name: 'Small Health Potion',
+            cost: 4
+        }, {
+            name: 'Small Mana Potion',
+            cost: 5
+        }, {
+            name: 'Iron Short Sword',
+            cost: 12
+        }];
+
+        $scope.enabled = false;
 
         $scope.menuOptions = [
             ['Buy', function ($itemScope) {
                 $scope.player.gold -= $itemScope.item.cost;
             }],
-            null,
-            ['Sell', function ($itemScope) {
+            null, ['Sell', function ($itemScope) {
                 $scope.player.gold += $itemScope.item.cost;
             }, function ($itemScope) {
                 return $itemScope.item.name.match(/Iron/) == null;
             }],
-            null,
-            ['More...', [
+            null, ['More...', [
                 ['Alert Cost', function ($itemScope) {
                     alert($itemScope.item.cost);
                 }],
@@ -49,7 +54,8 @@ angular.module('app', ['ui.bootstrap.contextMenu'])
 
         var customHtml = '<div style="cursor: pointer; background-color: pink"><i class="glyphicon glyphicon-ok-sign"></i> Testing Custom </div>';
         var customItem = {
-            html: customHtml, click: function ($itemScope, event, modelValue, text, $li) {
+            html: customHtml,
+            click: function ($itemScope, event, modelValue, text, $li) {
                 alert("custom html");
                 console.info($itemScope);
                 console.info(event);
@@ -70,11 +76,9 @@ angular.module('app', ['ui.bootstrap.contextMenu'])
             }
         };
 
-        $scope.customHTMLOptions = [customItem, customDisabledItem,
-            ['Example 1', function ($itemScope, $event, value) {
-                alert("Example 1");
-            }]
-        ];
+        $scope.customHTMLOptions = [customItem, customDisabledItem, ['Example 1', function ($itemScope, $event, value) {
+            alert("Example 1");
+        }]];
 
     }
 ]);

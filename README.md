@@ -181,6 +181,14 @@ Sometimes you'll want to catch the same event that's being used by this library 
 ```
 Note that if you set this to true, and don't catch it with something else the browser's context menu will be shown on top of this library's context menu.
 
+## Dynamically enable/disable context menu
+```
+<button class="btn btn-default"
+            context-menu="otherMenuOptions"
+            context-menu-enabled="contextMenuEnabled"
+            model="'Blue'">Right Click allow event propagation</button>
+```
+
 ## Nested Menus (v0.9.5+)
 
 Nested lists work by appending an array as the last index of any list of menu items.

@@ -17,11 +17,18 @@
         <a href="#"
            class="list-group-item"
            ng-repeat="item in items"
-           context-menu="menuOptions">
+           context-menu="menuOptions"
+           context-menu-enabled="enabled">
             <span class="badge">{{item.cost}}</span>
             {{item.name}}
         </a>
     </div>
+
+    <div>
+        <input type="checkbox" ng-model="enabled" />
+        <label>List context menu <span ng-if="!enabled">disabled</span><span ng-if="enabled">enabled</span></label>
+    </div>    
+
     <button class="btn btn-default"
             context-menu="otherMenuOptions"
             model="'Red'">Right Click</button>
